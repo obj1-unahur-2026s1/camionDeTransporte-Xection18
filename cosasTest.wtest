@@ -1,9 +1,13 @@
 import cosas.*
+import camion.*
 
-describe "group of test for cosas" {
+describe "Test paquete, baterial, contenedor y embalaje" {
 
-  test "first test" {
-    assert.that(true)
+  test "test1" {
+    residuos.peso(30)
+    embalaje.cosaEnvuelta(residuos)
+    contenedor.agregarCosas([bumblebee, arena, paqueteDeLadrillos])
+    assert.equals(30, embalaje.peso())
   }
 
 }

@@ -3,7 +3,7 @@ object knightRider {
     method nivelDePeligrosidad() = 10
 }
 
-object bumblee {
+object bumblebee {
     var formaActual = auto
 
     method cambiarForma(unaForma) {
@@ -55,6 +55,22 @@ object bateria {
 object contenedor {
     const cosasContenidas = []
 
+    method agregarCosa(cosa) {
+        cosasContenidas.add(cosa)
+    }
+
+    method agregarCosas(listaDeCosas) {
+        cosasContenidas.addAll(listaDeCosas)
+    }
+
+    method removerCosa(cosa) {
+        cosasContenidas.remover(cosa)
+    }
+
+    method removerCosas(listaDeCosas) {
+        cosasContenidas.removeAll(listaDeCosas)
+    }
+
     method peso() = 100 + self.pesoDeCosasContenidas()
     method nivelDePeligrosidad() {
         if (not cosasContenidas.isEmpty()) {
@@ -82,9 +98,6 @@ object embalaje {
 
     method peso() = self.cosaEnvuelta().peso()
     method nivelDePeligrosidad() = self.cosaEnvuelta().nivelDePeligrosidad() / 2
-    method cambiarCosaEnvuelta(nuevaCosa) {
-        cosaEnvuelta = nuevaCosa
-    }
 }
 
 object auto {
