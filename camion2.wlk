@@ -1,9 +1,12 @@
-import cosas.*
+import cosas2.*
 object camion {
     const cosasCargadas = []
 
+    method cantidadTotalDeBultos() = cosasCargadas.sum({cosa => cosa.bultos()})
+
     method cargar(cosa) {
         cosasCargadas.add(cosa)
+        cosa.consecuenciaDeLaCarga()
     }
 
     method descargar(cosa) {
@@ -12,6 +15,7 @@ object camion {
 
     method cargarCosas(unaLista) {
         cosasCargadas.addAll(unaLista)
+        unaLista.forEach({cosa => cosa.consecuenciaDeLaCarga()})
     }
 
     method peso() {
